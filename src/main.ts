@@ -10,10 +10,17 @@ async function bootstrap() {
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
-      forbidNonWhitelisted: true
+      forbidNonWhitelisted: true,
+      // estos 2 siguientes sirven para transformar datos de entrada en las request a lo que define su tipo de TS
+      transform: true, 
+      transformOptions: {
+        enableImplicitConversion: true
+      }
     })
   )
 
-  await app.listen(3000);
+  const port = process.env.PORT
+  await app.listen(port);
+  console.log(`App running on port ${port}`)
 }
 bootstrap();

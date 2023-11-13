@@ -1,7 +1,10 @@
 # compiled output
 /dist
-/mongo
 /node_modules
+
+/mongo
+
+.env
 
 # Logs
 logs
